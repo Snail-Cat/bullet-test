@@ -8,7 +8,7 @@ size = Vector2(16, 15)
 
 [node name="Enemy" type="Area2D" unique_id=2068513592]
 
-[node name="Destroyablesfsf]" type="Node" parent="." unique_id=1916309743]
+[node name="Destroyable" type="Node" parent="." unique_id=1916309743]
 script = ExtResource("1_4gyqm")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1635733972]
