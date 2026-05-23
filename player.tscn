@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://dq1c40yxw0xwa"]
+
+[ext_resource type="Script" uid="uid://bedi0cy2en8oj" path="res://player.gd" id="1_i3pqv"]
+[ext_resource type="PackedScene" uid="uid://cprwlw2hx61cm" path="res://bullet.tscn" id="2_hqtel"]
+[ext_resource type="Texture2D" uid="uid://btubxpfe5k20y" path="res://assets/tilemap_packed.png" id="3_sweqy"]
+[ext_resource type="AudioStream" uid="uid://86na4qkmucbe" path="res://assets/knife_throw.wav" id="4_hqtel"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ig7tw"]
+size = Vector2(16, 15)
+
+[node name="Player" type="CharacterBody2D" unique_id=1136381198 node_paths=PackedStringArray("timer", "audio_player")]
+script = ExtResource("1_i3pqv")
+bullet_scene = ExtResource("2_hqtel")
+timer = NodePath("Timer")
+audio_player = NodePath("AudioStreamPlayer")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=635994725]
+texture = ExtResource("3_sweqy")
+offset = Vector2(0, -2)
+region_enabled = true
+region_rect = Rect2(0, 128, 16, 16)
+region_filter_clip_enabled = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1483612194]
+position = Vector2(0, -1.5)
+shape = SubResource("RectangleShape2D_ig7tw")
+
+[node name="Timer" type="Timer" parent="." unique_id=1426499383]
+autostart = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2033497351]
+stream = ExtResource("4_hqtel")

@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://cprwlw2hx61cm"]
+
+[ext_resource type="Texture2D" uid="uid://btubxpfe5k20y" path="res://assets/tilemap_packed.png" id="1_v7oki"]
+[ext_resource type="Script" uid="uid://dcjkcakj3wyrp" path="res://bullet.gd" id="1_v8qja"]
+[ext_resource type="AudioStream" uid="uid://dq1utebxn6nox" path="res://assets/impact.wav" id="3_t4vbm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v8qja"]
+size = Vector2(7, 16)
+
+[node name="Bullet" type="Area2D" unique_id=781802678 node_paths=PackedStringArray("visibility_notifier")]
+script = ExtResource("1_v8qja")
+visibility_notifier = NodePath("VisibleOnScreenNotifier2D")
+audio_stream = ExtResource("3_t4vbm")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1662785383]
+texture = ExtResource("1_v7oki")
+region_enabled = true
+region_rect = Rect2(131, 128, 9, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2091151651]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_v8qja")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=933896393]

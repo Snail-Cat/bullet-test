@@ -1,7 +1,8 @@
 [gd_scene format=4 uid="uid://dtxquc3xr3b87"]
 
 [ext_resource type="Texture2D" uid="uid://btubxpfe5k20y" path="res://assets/tilemap_packed.png" id="1_ig7tw"]
-[ext_resource type="Script" uid="uid://bedi0cy2en8oj" path="res://player.gd" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://dq1c40yxw0xwa" path="res://player.tscn" id="2_h2yge"]
+[ext_resource type="PackedScene" uid="uid://cbj4gs4tcl7e" path="res://enemy.tscn" id="3_h2yge"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0xm2m"]
 texture = ExtResource("1_ig7tw")
@@ -141,12 +142,6 @@ texture = ExtResource("1_ig7tw")
 [sub_resource type="TileSet" id="TileSet_h2yge"]
 sources/0 = SubResource("TileSetAtlasSource_0xm2m")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ig7tw"]
-size = Vector2(16, 15)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0xm2m"]
-size = Vector2(16, 15)
-
 [node name="Main" type="Node2D" unique_id=1380805020]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1987282747]
@@ -155,29 +150,8 @@ tile_set = SubResource("TileSet_h2yge")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=927826277]
 
-[node name="Player" type="CharacterBody2D" parent="." unique_id=1983008447]
-script = ExtResource("2_0xm2m")
+[node name="Player" parent="." unique_id=1136381198 instance=ExtResource("2_h2yge")]
+position = Vector2(-54, -18)
 
-[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=332966598]
-texture = ExtResource("1_ig7tw")
-offset = Vector2(0, -2)
-region_enabled = true
-region_rect = Rect2(0, 128, 16, 16)
-region_filter_clip_enabled = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1049191855]
-position = Vector2(0, -1.5)
-shape = SubResource("RectangleShape2D_ig7tw")
-
-[node name="Enemy" type="Area2D" parent="." unique_id=482990961]
+[node name="Enemy" parent="." unique_id=2068513592 instance=ExtResource("3_h2yge")]
 position = Vector2(53, -47)
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemy" unique_id=1491112256]
-texture = ExtResource("1_ig7tw")
-region_enabled = true
-region_rect = Rect2(16, 160, 16, 16)
-region_filter_clip_enabled = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy" unique_id=933523611]
-position = Vector2(0, 0.5)
-shape = SubResource("RectangleShape2D_0xm2m")
